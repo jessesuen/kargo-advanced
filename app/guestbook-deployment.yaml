@@ -22,7 +22,7 @@ spec:
           value: bar
         - name: KUBECONEU
           value: "2024"
-        image: ghcr.io/jessesuen/guestbook:0.0.66
+        image: ghcr.io/jessesuen/guestbook:0.0.67
         name: guestbook
         ports:
         - containerPort: 3000
