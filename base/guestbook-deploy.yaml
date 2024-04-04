@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: guestbook
-  namespace: guestbook-prod-east
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -15,8 +14,15 @@ spec:
         app: guestbook
     spec:
       containers:
-      - image: ghcr.io/jessesuen/guestbook:v0.0.53
+      - image: ghcr.io/jessesuen/guestbook:latest
         name: guestbook
         ports:
-        - containerPort: 3000
-          name: http
+        - name: http
+          containerPort: 3000
+        env:
+        - name: FOO
+          value: bar
+        - name: BAZ
+          value: bar
+        - name: KUBECONEU
+          value: "2024"
