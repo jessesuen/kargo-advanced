@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/jessesuen/kargo-advanced.git
+      revision: HEAD
+      directories:
+      - path: env/*
+  template:
+    metadata:
+      name: guestbook-{{path.basename}}
+      annotations:
+        kargo.akuity.io/authorized-stage: kargo-advanced:*
+    spec:
+      destination:
+        namespace: guestbook-{{path.basename}}
+        # To deploy to a different cluster, replace `name: demo` with your cluster name,
+        # or use a server url (e.g. https://kubernetes.default.svc)
+        name: demo
+        # server: https://kubernetes.default.svc
+      project: guestbook
+      source:
+        path: app # default render path
+        repoURL: https://github.com/jessesuen/kargo-advanced.git
+        targetRevision: env/{{path.basename}}
