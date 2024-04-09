@@ -35,3 +35,50 @@ spec:
       web:
         url: https://cat-fact.herokuapp.com/facts/58e00b5f0aac31001185ed24
         jsonPath: "{$.status.sentCount}"
+
+---
+# This is a Job based AnalysisTemplate that will succeed or fail depending on
+# if the `succeed` argument is set to `true` or `false` respectively.
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: test
+  namespace: kargo-advanced
+spec:
+  metrics:
+  - name: test
+    provider:
+      job:
+        spec:
+          backoffLimit: 1
+          template:
+            spec:
+              containers:
+              - name: test
+                image: alpine:latest
+                command: [sh, -c]
+                args: ['sleep 30']
+              restartPolicy: Never
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: test-fail
+  namespace: kargo-advanced
+spec:
+  metrics:
+  - name: test-fail
+    provider:
+      job:
+        spec:
+          backoffLimit: 1
+          template:
+            spec:
+              containers:
+              - name: test
+                image: alpine:latest
+                command: [sh, -c]
+                args: ['sleep 30; exit 1']
+              restartPolicy: Never
+

@@ -12,3 +12,5 @@ spec:
   - git:
       repoURL: https://github.com/jessesuen/kargo-advanced.git
       branch: main
+      includePaths:
+      - regex:^base/.*$
