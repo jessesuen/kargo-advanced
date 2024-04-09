@@ -18,6 +18,8 @@ spec:
       - env:
         - name: FOO
           value: bar
+        - name: KARGO
+          value: webinar
         image: ghcr.io/jessesuen/guestbook:0.0.73
         name: guestbook
         ports:
