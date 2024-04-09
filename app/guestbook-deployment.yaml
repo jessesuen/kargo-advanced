@@ -18,10 +18,6 @@ spec:
       - env:
         - name: FOO
           value: bar
-        - name: BAZ
-          value: bar
-        - name: KUBECONEU
-          value: "2024"
         image: ghcr.io/jessesuen/guestbook:0.0.73
         name: guestbook
         ports:
