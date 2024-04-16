@@ -18,9 +18,11 @@ spec:
       - env:
         - name: FOO
           value: bar
-        - name: KARGO
-          value: webinar
-        image: ghcr.io/jessesuen/guestbook:0.0.75
+        - name: BAZ
+          value: bar
+        - name: KUBECONEU
+          value: "2024"
+        image: ghcr.io/jessesuen/guestbook:v0.0.64
         name: guestbook
         ports:
         - containerPort: 3000
