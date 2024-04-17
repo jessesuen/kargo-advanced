@@ -24,3 +24,5 @@ spec:
           value: bar
         - name: KARGO
           value: webinar
+        - name: TEST
+          value: test
