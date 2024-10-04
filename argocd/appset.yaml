@@ -18,12 +18,11 @@ spec:
     spec:
       destination:
         namespace: guestbook-{{path.basename}}
-        # To deploy to a different cluster, replace `name: demo` with your cluster name,
-        # or use a server url (e.g. https://kubernetes.default.svc)
-        name: demo
-        # server: https://kubernetes.default.svc
+        # Specify either a cluster destination name or server address:
+        name: in-cluster
+        # server: https://REPLACEME
       project: guestbook
       source:
-        path: app # default render path
+        path: ./
         repoURL: https://github.com/jessesuen/kargo-advanced.git
         targetRevision: env/{{path.basename}}
