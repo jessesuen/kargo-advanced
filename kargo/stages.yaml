@@ -160,6 +160,9 @@ spec:
       direct: false
       stages:
       - staging
+  verification:
+    analysisTemplates:
+    - name: cat-fact
   promotionTemplate:
     spec:
       steps:
@@ -234,6 +237,9 @@ spec:
       direct: false
       stages:
       - staging
+  verification:
+    analysisTemplates:
+    - name: cat-fact-fail
   promotionTemplate:
     spec:
       steps:
