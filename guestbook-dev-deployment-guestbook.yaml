@@ -18,7 +18,9 @@ spec:
       - env:
         - name: FOO
           value: bar
-        image: ghcr.io/jessesuen/guestbook:v0.0.82
+        - name: BAZ
+          value: bar
+        image: ghcr.io/jessesuen/guestbook:v0.0.89
         name: guestbook
         ports:
         - containerPort: 3000
